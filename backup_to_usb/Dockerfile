@@ -5,6 +5,6 @@ ENV LANG C.UTF-8
 
 RUN apk add --no-cache rsync jq
 
-COPY USB_backup..sh /
+COPY run.sh /
 RUN chmod a+x /run.sh
 CMD [ "/run.sh" ]
