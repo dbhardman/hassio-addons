@@ -1,0 +1,28 @@
+{
+  "name": "Copy Backups to usb",
+  "version": "0.0.1",
+  "slug": "copy_backups_to_usb",
+  "description": "Copies backups from /backup to /dev/sda1",
+  "startup": "once",
+  "boot": "manual",
+  "privileged": [
+    "SYS_ADMIN"
+  ],
+  "hassio_api": true,
+  "map": [
+    "backup:rw"
+  ],
+  "devices": [
+    "/dev/sda1:/dev/sda1:rwm"
+  ],
+  "options": {
+    "max_local_backups": 2,
+    "max_remote_backups": 7,
+    "remote_backup_path": "backups"
+  },
+  "schema": {
+    "max_local_backups": "int",
+    "max_remote_backups": "int",
+    "remote_backup_path": "str"
+  }
+}
