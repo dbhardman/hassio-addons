@@ -1,3 +1,3 @@
 # hassio-addons
-Home assistant addons
-My personal addons projects for Home Assistant.
+
+My personal addon projects for Home Assistant.
