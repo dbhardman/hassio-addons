@@ -3,12 +3,13 @@
   "version": "0.0.1",
   "slug": "copy_backups_to_usb",
   "description": "Copies backups from /backup to /dev/sda1",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "startup": "once",
   "boot": "manual",
   "privileged": [
     "SYS_ADMIN"
   ],
-  "hassio_api": true,
+  "homeassistant_api": true,
   "map": [
     "backup:rw"
   ],
