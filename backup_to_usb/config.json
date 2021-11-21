@@ -1,25 +1,25 @@
 {
   "name": "Copy Backups to usb",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "slug": "copy_backups_to_usb",
-  "description": "Copies backups from /backup to /dev/sda1",
-  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "description": "Copies backups from /backup to a usb drive mapped to media or share folders",
+  "url": "https://github.com/dbhardman/hassio-addons",
   "startup": "once",
   "boot": "manual",
-  "privileged": [
-    "SYS_ADMIN"
-  ],
-  "homeassistant_api": true,
+  "advanced": true,
+  "ingress": true,
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "hassio_api": true,
+  "hassio_role": "backup",
   "map": [
-    "backup:rw"
-  ],
-  "devices": [
-    "/dev/sda1:/dev/sda1:rwm"
+    "backup:rw",
+    "media:rw",
+    "share:rw"
   ],
   "options": {
     "max_local_backups": 2,
     "max_remote_backups": 7,
-    "remote_backup_path": "backups"
+    "remote_backup_path": "media/usb-sda1/backups"
   },
   "schema": {
     "max_local_backups": "int",
