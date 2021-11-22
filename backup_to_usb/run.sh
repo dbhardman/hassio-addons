@@ -34,7 +34,7 @@ fi
 
 # use rsync to copy over any backups from the sd card backup folder to $BACKUP_PATH
 # -v (verbose) -t (preserve time stamp)
-echo "[INFO] Copying all backups from /backup to /mnt/$BACKUP_PATH"
+echo "[INFO] Copying all backups from /backup to /$BACKUP_PATH"
 rsync -v -t /backup/*.tar /$BACKUP_PATH
 
 #cleanup backup folder only keeping $MAX_LOCAL (default 2 ) images
