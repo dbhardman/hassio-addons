@@ -35,7 +35,7 @@ fi
 # use rsync to copy over any backups from the sd card backup folder to $BACKUP_PATH
 # -v (verbose) -t (preserve time stamp)
 echo "[INFO] Copying all backups from /backup to /mnt/$BACKUP_PATH"
-rsync -v /backup/*.tar /mnt/$BACKUP_PATH
+rsync -v /backup/*.tar /$BACKUP_PATH
 
 #cleanup backup folder only keeping $MAX_LOCAL (default 2 ) images
 echo "[INFO] Purging backups from /backup except for the last $MAX_LOCAL"
@@ -43,4 +43,4 @@ ls -tp /backup/*.tar | grep -v '/$' | tail -n +$MAX_LOCAL_PLUS1 | xargs -I {} rm
 
 # cleanup the $BACKUP_PATH only keeping $MAX_REMOTE (default 7 ) images
 echo "[INFO] Purging backups from /mnt/$BACKUP_PATH except for the last $MAX_REMOTE"
-ls -tp /mnt/$BACKUP_PATH/*.tar | grep -v '/$' | tail -n +$MAX_REMOTE_PLUS1 | xargs -I {} rm -- "{}"
+ls -tp /$BACKUP_PATH/*.tar | grep -v '/$' | tail -n +$MAX_REMOTE_PLUS1 | xargs -I {} rm -- "{}"
