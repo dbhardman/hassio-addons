@@ -1,6 +1,6 @@
 {
   "name": "Copy Backups to usb",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "slug": "copy_backups_to_usb",
   "description": "Copies backups from /backup to a usb drive mapped to media or share folders",
   "url": "https://github.com/dbhardman/hassio-addons",

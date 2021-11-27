@@ -16,6 +16,8 @@ Once complete, select the configuration tab and ensure the path is set as per th
 
 The addon does not have to be started, as it simply runs through and stops.   The best way to use in an automation is to call Service, select hassio.addon_start and select the addon slug in the drop down box.
 
+Version 0.0.03 added the ability to resore backups from the usb key
+
 You can call from the Developer Tools to test.
 
 
