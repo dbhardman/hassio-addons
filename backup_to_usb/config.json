@@ -19,11 +19,13 @@
   "options": {
     "max_local_backups": 2,
     "max_remote_backups": 7,
-    "remote_backup_path": "media/usb-sda1/backup"
+    "remote_backup_path": "media/usb-sda1/backup",
+    "restore_backups": "no"
   },
   "schema": {
     "max_local_backups": "int",
     "max_remote_backups": "int",
-    "remote_backup_path": "str"
+    "remote_backup_path": "str",
+    "restore_backups": "str"
   }
 }
