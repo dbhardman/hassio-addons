@@ -6,6 +6,7 @@ MAX_LOCAL_PLUS1=$(($MAX_LOCAL + 1))
 MAX_REMOTE=$(jq --raw-output ".max_remote_backups" $CONFIG_PATH)
 MAX_REMOTE_PLUS1=$(($MAX_REMOTE + 1))
 BACKUP_PATH=$(jq --raw-output ".remote_backup_path" $CONFIG_PATH)
+RESTORE_BACKUPS=$(jq --rawoutput ".restore_backups" $CONFIG_PATH)
 
 echo "[INFO] MAX_LOCAL=$MAX_LOCAL"
 echo "[INFO] MAX_REMOTE=$MAX_REMOTE"
@@ -22,6 +23,15 @@ if [ ! -d /$BASE_DIRECTORY ]; then
   exit 1
 else
   echo "[INFO] $BASE_DIRECTORY is mapped to container"
+fi
+
+#if restore_backups == yes then do restore and exit
+# -v (verbose) -t (preserve time stamp)
+LC=${RESTORE_BACKUPS,,}
+if [$LC == "yes"]; then
+  echo "[INFO] Restoring backups from /$BACKUP_PATH to /backup"
+  rsync -v -t /$BACKUP_PATH/*.tar /backup
+  exit 0
 fi
 
 #Create /$BACKUP_PATH folder if it does not exist
